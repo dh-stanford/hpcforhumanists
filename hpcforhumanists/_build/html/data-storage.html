@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data storage &#8212; HPC for Humanists</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data transfer" href="data-transfer.html" />
+    <link rel="prev" title="Logging in" href="logging-in.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">HPC for Humanists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    HPC for Humanists (and Social Scientists)
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="why-care.html">
+   Why should you care about HPC?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting-access.html">
+   Getting access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logging-in.html">
+   Logging in
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data storage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-transfer.html">
+   Data transfer
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/dh-stanford/hpcforhumanists"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/dh-stanford/hpcforhumanists/issues/new?title=Issue%20on%20page%20%2Fdata-storage.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/data-storage.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#home-directory">
+   Home directory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hpc-storage">
+   HPC storage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scratch-storage">
+   Scratch storage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-storage-in-practice">
+   Data storage in practice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-analysis-old-corpus">
+     New analysis, old corpus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#corpora-corpora-everywhere">
+     Corpora, corpora everywhere
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#storage-limits-oak">
+   🌲 Storage limits &amp; Oak
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data storage</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#home-directory">
+   Home directory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hpc-storage">
+   HPC storage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scratch-storage">
+   Scratch storage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-storage-in-practice">
+   Data storage in practice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-analysis-old-corpus">
+     New analysis, old corpus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#corpora-corpora-everywhere">
+     Corpora, corpora everywhere
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#storage-limits-oak">
+   🌲 Storage limits &amp; Oak
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-storage">
+<h1>Data storage<a class="headerlink" href="#data-storage" title="Permalink to this headline">#</a></h1>
+<p>Data storage is a little more complex on an HPC system than on your own computer. There are three different places where you might put data, each with a different purpose and set of constraints. It’s worth understanding each of them a little before you jump into data transfer.</p>
+<div class="section" id="home-directory">
+<h2>Home directory<a class="headerlink" href="#home-directory" title="Permalink to this headline">#</a></h2>
+<p>Individual users and groups on HPC clusters will have a small amount of storage space called a “home directory”. A user’s home directory is the directory in the filesystem that they’re located in when they log into the cluster. If you don’t have access to, or can’t pay for HPC storage for data you’ll use multiple times in the HPC cluster, you can keep it in your home directory. Any scripts that you want to run are also good to put in your home directory.</p>
+</div>
+<div class="section" id="hpc-storage">
+<h2>HPC storage<a class="headerlink" href="#hpc-storage" title="Permalink to this headline">#</a></h2>
+<p>The name of this particular service may vary across institutions, but HPC clusters almost always have some kind of associated storage that is intended for long-term use, and is regularly backed up. There may be an annual or monthly charge, or a certain amount of storage might come free if you or your group purchase a compute node.</p>
+<p>Depending on how large your data is, and how often you need to analyze it using the HPC cluster, it may make sense to store a copy of your data on the HPC storage.</p>
+<p>When working with HPC storage, you may see something in the documentation about limits on the number of <em>inodes</em> you can have, in addition to limits on total storage space. Every <em>inode</em> refers to one file, and HPC systems are often set up using assumptions about the likely number of files each group will have, based on common practice in fields like astrophysics. Humanists and social scientists can quickly blow through stated or implicit <em>inode</em> quotas with a few copies of something like the Google N-Grams data set, which isn’t that large (in gigabytes) but which contains hundreds of thousands of tiny files. If you’re going to store a data set on HPC storage, you should compress it into a single file (e.g. .zip or .tar.gz) and put <em>that</em> on HPC storage, not a folder full of individual files.</p>
+</div>
+<div class="section" id="scratch-storage">
+<h2>Scratch storage<a class="headerlink" href="#scratch-storage" title="Permalink to this headline">#</a></h2>
+<p>Scratch storage is a different kind of storage connected to an HPC cluster. Much like scratch paper, it’s meant to be used temporarily while you’re computing. There’s no backup for things on scratch, and most scratch systems regularly delete files that haven’t been accessed (or modified) recently, though the details and frequency of scratch purges varies from system to system.</p>
+<p>The ephemerality of scratch may make you wary, but don’t let it scare you away: when you’re doing computation on an HPC cluster, you <em>need scratch</em>. Scratch is <strong>fast</strong> for the cluster to read from and write to, much faster than the HPC storage system. And even if you feel like you can be patient and aren’t in any particular hurry, you should still use scratch as your primary storage location for when you’re doing computation on an HPC cluster. The faster you can get your computation done, the less time you have to request for your jobs on the cluster. And the less time you have to request, the less time you have to wait for your jobs to run.</p>
+</div>
+<div class="section" id="data-storage-in-practice">
+<h2>Data storage in practice<a class="headerlink" href="#data-storage-in-practice" title="Permalink to this headline">#</a></h2>
+<p>Here’s what two workflows for data storage look like, for different kinds of projects.</p>
+<div class="section" id="new-analysis-old-corpus">
+<h3>New analysis, old corpus<a class="headerlink" href="#new-analysis-old-corpus" title="Permalink to this headline">#</a></h3>
+<p>A grad student wants to do research using the Early English Books Online (EEBO) corpus, the largest corpus of Early Modern English which has an “open source” version. Their advisor already has a copy of EEBO stored in their group’s HPC storage space. EEBO is the only data source the student needs for this analysis.</p>
+<p>The student logs into the HPC cluster using the command line, and runs a command to copy the zipped directory with the EEBO corpus from HPC storage onto scratch storage. (Copying files around is something that’s fine to do on the login node.) They unzip the copy of EEBO on scratch, and set up their job to read the data from the unzipped copy of EEBO on scratch, process it through an analysis script they have stored in their home directory, then write the results back to scratch. The final step of their job copies all the result files back to their home directory.</p>
+</div>
+<div class="section" id="corpora-corpora-everywhere">
+<h3>Corpora, corpora everywhere<a class="headerlink" href="#corpora-corpora-everywhere" title="Permalink to this headline">#</a></h3>
+<p>A faculty member wants to run an analysis that combines the Chicago Corpus (which they have a copy of, zipped up, on HPC storage), some books their library has given them access to on the condition that they are only used for non-consumptive analysis on the HPC cluster. They also want to use a few text files that they currently have on their own computer.</p>
+<p>The faculty member logs into Globus, using their computer as one endpoint and scratch storage as the other endpoint. They click around their computer, find a few files in different places, and transfer them to scratch using the Globus web interface. It’s okay if those files get purged from scratch; they have a copy on their own computer, and the files don’t form a coherent corpus that they’ll want to reuse in the future. While they have Globus open, they change the endpoint from their computer to HPC storage, and use Globus to transfer the zipped files for the Chicago corpus and the library books to scratch as well.</p>
+<p>They then log into the HPC cluster, and use the command line to unzip the files with the Chicago Corpus and library books. They may rearrange the particular files they need so they’re all in the same directory, to make it easier to run their job. (At some point, if they need to do a lot of file rearranging, they might log into Globus and use the web interface to move files around.) Finally, they run a job using a script stored in their home directory, and output the results to scratch, copying the output files to their home directory as the last step.</p>
+</div>
+</div>
+<div class="section" id="storage-limits-oak">
+<h2>🌲 Storage limits &amp; Oak<a class="headerlink" href="#storage-limits-oak" title="Permalink to this headline">#</a></h2>
+<p>At Stanford, the HPC storage service is called <a class="reference external" href="https://uit.stanford.edu/service/oak-storage">Oak</a>, which is a paid service where faculty rent space on a month-to-month basis in either 10 TB ($45/mo) or 250 TB increments ($587/mo). It can’t be used with high-risk data (e.g. ebooks that you’ve decrypted as part of the DMCA exemption for text and data mining).</p>
+<p>Your Home directory on Sherlock has a <a class="reference external" href="https://www.sherlock.stanford.edu/docs/storage/filesystems/#home">limit of 15 GB</a>; the Group Home directory for the group you belong to (i.e. your PI’s group) has a <a class="reference external" href="https://www.sherlock.stanford.edu/docs/storage/filesystems/#group_home">limit of 1 TB</a>. On Scratch, you’re limited to <a class="reference external" href="https://www.sherlock.stanford.edu/docs/storage/filesystems/#scratch">100 TB and 20M inodes</a>, and all data not <em>modified</em> (which doesn’t include reading it, just changing it) in the last 90 days gets deleted… although any folders and subfolders do not, which can leave you with lots of nested empty folders in scratch that you need to clean up from time to time.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="logging-in.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Logging in</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="data-transfer.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data transfer</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quinn Dombrowski<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
