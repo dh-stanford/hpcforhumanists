@@ -292,12 +292,48 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#globus">
+   Globus
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-globus-connect">
+     Setting up Globus Connect
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transferring-files-with-globus">
+     Transferring files with Globus
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -309,6 +345,31 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#globus">
+   Globus
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-globus-connect">
+     Setting up Globus Connect
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transferring-files-with-globus">
+     Transferring files with Globus
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -319,6 +380,29 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="data-transfer">
 <h1>Data transfer<a class="headerlink" href="#data-transfer" title="Permalink to this headline">#</a></h1>
 <p>Once you get a sense for the different kinds of storage locations available to you as part of the HPC cluster, your next step is to actually transfer the files you need to analyze.</p>
+<p>You can expect your cluster will have a way for you to use the command line to transfer files, but for a lot of humanities scholars, that’s less comfortable than using something with a visual interface. In this section, we’ll cover various options that your research computing group may or may not provide for data transfer, to at least give you some language for what to ask for.</p>
+<div class="section" id="globus">
+<h2>Globus<a class="headerlink" href="#globus" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://www.globus.org/">Globus</a> is a service that universities can subscribe to, that allows users to transfer files between different storage locations (e.g. scratch vs HPC storage vs your home directory) using a web-based interface. If you want to also transfer files to and from your own computer, there’s a small application, <a class="reference external" href="https://www.globus.org/globus-connect-personal">Globus Connect Personal</a>, that you need to install on your computer.</p>
+<p>First, make sure that your research computing group supports Globus-based access to the HPC cluster (for scratch and your home directory) and/or HPC storage. Searching for <em>your institution’s name + “research computing” + Globus</em> should turn up something if you have access.</p>
+<div class="section" id="setting-up-globus-connect">
+<h3>Setting up Globus Connect<a class="headerlink" href="#setting-up-globus-connect" title="Permalink to this headline">#</a></h3>
+<p>Next, install <a class="reference external" href="https://www.globus.org/globus-connect-personal">Globus Connect Personal</a>. Once it’s installed, launch the software. A window will pop up with a <em>Log In</em> button. Click the button, and it will take you to a webpage where you can choose your institution from a drop-down menu, then log in as you usually do.</p>
+<p>The next step is to create an <em>endpoint</em> for your computer. An <em>endpoint</em> is just a place where Globus can transfer data to or from. The HPC cluster should have an endpoint, HPC storage should have an endpoint, and there may be other endpoints within your institution (e.g. possibly run by the library for transferring data from their digitized collections) that you can get access to. The names of all endpoints are publicly visible (but <strong>not</strong> accessible) to everyone at your institution, so you might not want to call the endpoint for your laptop something embarrassing.</p>
+<p>You can read the <a class="reference external" href="https://docs.globus.org/faq/globus-connect-endpoints/#how_can_i_create_an_endpoint">Globus instructions for how to set up an endpoint</a>.</p>
+<p>Globus Connect Personal may not automatically start every time you reboot your computer. Even though you’ll mostly be interacting with Globus through a browser, you do need to have Globus Connect running in order to successfully transfer files to and from your computer. If you log into Globus and try to connect to the endpoint for your computer, but Globus Connect isn’t running, the webpage will prompt you to start it.</p>
+</div>
+<div class="section" id="transferring-files-with-globus">
+<h3>Transferring files with Globus<a class="headerlink" href="#transferring-files-with-globus" title="Permalink to this headline">#</a></h3>
+<p>If you go to <a class="reference external" href="https://app.globus.org/file-manager">https://app.globus.org/file-manager</a>, after you authenticate, you’ll see an interface with two panels by default. Those are two different storage locations, and you use the two panels to transfer files from one to the other. (There’s no “source” and “destination” relationship inherently between those two panels; you can go in either direction.)</p>
+<p><img alt="Globus file manager screen" src="_images/globus_filemanager.png" /></p>
+<p>The first step is to search for a collection. In Globus jargon, “collections” and “endpoints” have different functionality for people who run servers, but we can treat them as both meaning “somewhere you transfer data to and/or from”. If you click in the box labeled “Search”, you’ll see collections that you’ve recently accessed, or you can start typing and it will try to autocomplete options. When it autocompletes, it will also show the owner (by email address), which can be useful to confirm, for instance, that you’re trying to connect to your computer and not one with a similar endpoint name.</p>
+<p><img alt="Searching for Quinn as a collection in Globus" src="_images/globus_search.png" /></p>
+<p>Your research computing group will tell you how to search for their endpoints.</p>
+<p>.. 🌲 ::
+The Globus endpoint for Sherlock is <a class="reference external" href="https://app.globus.org/file-manager?origin_id=6881ae2e-db26-11e5-9772-22000b9da45e">SRCC Sherlock</a>, from where you can access your and your group’s home and scratch directories. To access Oak, you can use <a class="reference external" href="https://app.globus.org/file-manager?origin_id=8b3a8b64-d4ab-4551-b37e-ca0092f769a7">SRCC Oak</a>.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
