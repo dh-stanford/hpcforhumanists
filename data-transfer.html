@@ -399,9 +399,22 @@ title="Print to PDF"
 <p>The first step is to search for a collection. In Globus jargon, “collections” and “endpoints” have different functionality for people who run servers, but we can treat them as both meaning “somewhere you transfer data to and/or from”. If you click in the box labeled “Search”, you’ll see collections that you’ve recently accessed, or you can start typing and it will try to autocomplete options. When it autocompletes, it will also show the owner (by email address), which can be useful to confirm, for instance, that you’re trying to connect to your computer and not one with a similar endpoint name.</p>
 <p><img alt="Searching for Quinn as a collection in Globus" src="_images/globus_search.png" /></p>
 <p>Your research computing group will tell you how to search for their endpoints.</p>
-<div class="admonition- admonition">
-<p class="admonition-title">🌲</p>
+<div class="admonition-stanford-endpoints admonition">
+<p class="admonition-title">🌲 Stanford endpoints</p>
 <p>The Globus endpoint for Sherlock is <a class="reference external" href="https://app.globus.org/file-manager?origin_id=6881ae2e-db26-11e5-9772-22000b9da45e">SRCC Sherlock</a>, from where you can access your and your group’s home and scratch directories. To access Oak, you can use <a class="reference external" href="https://app.globus.org/file-manager?origin_id=8b3a8b64-d4ab-4551-b37e-ca0092f769a7">SRCC Oak</a>.</p>
+</div>
+<p>Once you select a collection for one of the panels, you’ll see the files in the default starting location for that collection. For your computer, this will be the home directory of your user account (on a Mac, /Users/your-user-name; on Windows, C:\Users\your-user-name.) You can navigate through your files using the panel connected to your computer by clicking through the folders that appear, or you can type something under <em>Path</em>. (For instance, to get to the <em>Documents</em> folder on a Mac, you’d set the path to be <code class="docutils literal notranslate"><span class="pre">/~/Documents</span></code>)</p>
+<p>Find a file or folder that you would like to transfer, and hover over its name in the Globus panel. A checkbox will appear on the left, and you can check it to select it for transfer. Once you’ve checked at least one checkbox, and have connected to a collection in both panels, the blue <em>Start</em> button above that panel will turn dark blue. You can click it to begin transferring the files you’ve checked to the other pane.</p>
+<p>While the transfer is going, you’ll see a little spinning wheel in the Globus icon on your computer (if you’re transferring files to or from your computer), and by default, you’ll get an email when the transfer is complete.</p>
+<div class="admonition-navigating-sherlock-oak admonition">
+<p class="admonition-title">🌲 Navigating Sherlock &amp; Oak</p>
+<p>Here are the paths you can enter to get to different places within Sherlock (putting in the right SUNetID as needed):</p>
+<ul class="simple">
+<li><p><strong>Your scratch:</strong> /scratch/users/your-sunet-id</p></li>
+<li><p><strong>Your group’s scratch:</strong> /scratch/groups/groups/your-faculty-members-sunet-id</p></li>
+<li><p><strong>Your home (default location):</strong> /~/</p></li>
+</ul>
+<p>When you connect to Oak, you won’t be automatically put into a folder where you can upload things; you’ll need to navigate around to find it. In most cases, if the faculty member you’re working with has bought storage on Oak, you’ll want to set the path to /oak/stanford/groups/your-faculty-members-sunet-id.</p>
 </div>
 </div>
 </div>

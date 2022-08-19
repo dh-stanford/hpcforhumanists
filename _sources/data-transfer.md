@@ -28,7 +28,22 @@ The first step is to search for a collection. In Globus jargon, "collections" an
 
 Your research computing group will tell you how to search for their endpoints.
 
-```{admonition} 🌲
+```{admonition} 🌲 Stanford endpoints
 The Globus endpoint for Sherlock is [SRCC Sherlock](https://app.globus.org/file-manager?origin_id=6881ae2e-db26-11e5-9772-22000b9da45e), from where you can access your and your group's home and scratch directories. To access Oak, you can use [SRCC Oak](https://app.globus.org/file-manager?origin_id=8b3a8b64-d4ab-4551-b37e-ca0092f769a7).
 ```
 
+Once you select a collection for one of the panels, you'll see the files in the default starting location for that collection. For your computer, this will be the home directory of your user account (on a Mac, /Users/your-user-name; on Windows, C:\\Users\\your-user-name.) You can navigate through your files using the panel connected to your computer by clicking through the folders that appear, or you can type something under *Path*. (For instance, to get to the *Documents* folder on a Mac, you'd set the path to be `/~/Documents`)
+
+Find a file or folder that you would like to transfer, and hover over its name in the Globus panel. A checkbox will appear on the left, and you can check it to select it for transfer. Once you've checked at least one checkbox, and have connected to a collection in both panels, the blue *Start* button above that panel will turn dark blue. You can click it to begin transferring the files you've checked to the other pane.
+
+While the transfer is going, you'll see a little spinning wheel in the Globus icon on your computer (if you're transferring files to or from your computer), and by default, you'll get an email when the transfer is complete.
+
+```{admonition} 🌲 Navigating Sherlock & Oak
+Here are the paths you can enter to get to different places within Sherlock (putting in the right SUNetID as needed):
+
+* **Your scratch:** /scratch/users/your-sunet-id
+* **Your group's scratch:** /scratch/groups/groups/your-faculty-members-sunet-id
+* **Your home (default location):** /~/ 
+
+When you connect to Oak, you won't be automatically put into a folder where you can upload things; you'll need to navigate around to find it. In most cases, if the faculty member you're working with has bought storage on Oak, you'll want to set the path to /oak/stanford/groups/your-faculty-members-sunet-id.
+```
