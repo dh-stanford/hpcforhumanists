@@ -28,6 +28,7 @@ The first step is to search for a collection. In Globus jargon, "collections" an
 
 Your research computing group will tell you how to search for their endpoints.
 
-.. 🌲 ::
-   The Globus endpoint for Sherlock is [SRCC Sherlock](https://app.globus.org/file-manager?origin_id=6881ae2e-db26-11e5-9772-22000b9da45e), from where you can access your and your group's home and scratch directories. To access Oak, you can use [SRCC Oak](https://app.globus.org/file-manager?origin_id=8b3a8b64-d4ab-4551-b37e-ca0092f769a7).
+```{admonition} 🌲
+The Globus endpoint for Sherlock is [SRCC Sherlock](https://app.globus.org/file-manager?origin_id=6881ae2e-db26-11e5-9772-22000b9da45e), from where you can access your and your group's home and scratch directories. To access Oak, you can use [SRCC Oak](https://app.globus.org/file-manager?origin_id=8b3a8b64-d4ab-4551-b37e-ca0092f769a7).
+```
 
