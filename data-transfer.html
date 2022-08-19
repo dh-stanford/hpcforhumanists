@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HPC for Humanists (and Social Scientists) &#8212; HPC for Humanists</title>
+    <title>Data storage &#8212; HPC for Humanists</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,7 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Why should you care about HPC?" href="why-care.html" />
+    <link rel="prev" title="Data storage" href="data-storage.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -105,13 +105,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     HPC for Humanists (and Social Scientists)
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="why-care.html">
    Why should you care about HPC?
@@ -132,8 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
    Data storage
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="data-transfer.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Data storage
   </a>
  </li>
@@ -227,7 +227,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/dh-stanford/hpcforhumanists/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/dh-stanford/hpcforhumanists/issues/new?title=Issue%20on%20page%20%2Fdata-transfer.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -255,7 +255,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/intro.md"
+        <a href="_sources/data-transfer.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -292,23 +292,114 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#home-directory">
+   Home directory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hpc-storage">
+   HPC storage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scratch-storage">
+   Scratch storage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-storage-in-practice">
+   Data storage in practice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-analysis-old-corpus">
+     New analysis, old corpus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#corpora-corpora-everywhere">
+     Corpora, corpora everywhere
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>HPC for Humanists (and Social Scientists)</h1>
+                <h1>Data storage</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#home-directory">
+   Home directory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hpc-storage">
+   HPC storage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scratch-storage">
+   Scratch storage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-storage-in-practice">
+   Data storage in practice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-analysis-old-corpus">
+     New analysis, old corpus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#corpora-corpora-everywhere">
+     Corpora, corpora everywhere
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -316,11 +407,38 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="hpc-for-humanists-and-social-scientists">
-<h1>HPC for Humanists (and Social Scientists)<a class="headerlink" href="#hpc-for-humanists-and-social-scientists" title="Permalink to this headline">#</a></h1>
-<p>If someone has told you to use HPC but references to SLURM or nodes or or parallelization leave you feeling baffled and overwhelmed, you’re in the right place! <em>HPC for Humanists (and Social Scientists)</em> is a practical guide to getting started with high-performance computing for people with some basic familiarity with the command line and working with code, but not much more than that.</p>
-<p>If you’re looking for more background first, check out the Programming Historian tutorial on the <a class="reference external" href="https://programminghistorian.org/en/lessons/intro-to-bash">command line</a>. Examples here will mostly involve working with text using Python, so you might want to <a class="reference external" href="https://programminghistorian.org/en/lessons/working-with-text-files">review Python text manipulation basics</a> too.</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-storage">
+<h1>Data storage<a class="headerlink" href="#data-storage" title="Permalink to this headline">#</a></h1>
+<p>Data storage is a little more complex on an HPC system than on your own computer. There are three different places where you might put data, each with a different purpose and set of constraints. It’s worth understanding each of them a little before you jump into data transfer.</p>
+<div class="section" id="home-directory">
+<h2>Home directory<a class="headerlink" href="#home-directory" title="Permalink to this headline">#</a></h2>
+<p>Individual users and groups on HPC clusters will have a small amount of storage space called a “home directory”. A user’s home directory is the directory in the filesystem that they’re located in when they log into the cluster. If you don’t have access to, or can’t pay for HPC storage for data you’ll use multiple times in the HPC cluster, you can keep it in your home directory. Any scripts that you want to run are also good to put in your home directory.</p>
+</div>
+<div class="section" id="hpc-storage">
+<h2>HPC storage<a class="headerlink" href="#hpc-storage" title="Permalink to this headline">#</a></h2>
+<p>The name of this particular service may vary across institutions, but HPC clusters almost always have some kind of associated storage that is intended for long-term use, and is regularly backed up. There may be an annual or monthly charge, or a certain amount of storage might come free if you or your group purchase a compute node.</p>
+<p>Depending on how large your data is, and how often you need to analyze it using the HPC cluster, it may make sense to store a copy of your data on the HPC storage.</p>
+<p>When working with HPC storage, you may see something in the documentation about limits on the number of <em>inodes</em> you can have, in addition to limits on total storage space. Every <em>inode</em> refers to one file, and HPC systems are often set up using assumptions about the likely number of files each group will have, based on common practice in fields like astrophysics. Humanists and social scientists can quickly blow through stated or implicit <em>inode</em> quotas with a few copies of something like the Google N-Grams data set, which isn’t that large (in gigabytes) but which contains hundreds of thousands of tiny files. If you’re going to store a data set on HPC storage, you should compress it into a single file (e.g. .zip or .tar.gz) and put <em>that</em> on HPC storage, not a folder full of individual files.</p>
+</div>
+<div class="section" id="scratch-storage">
+<h2>Scratch storage<a class="headerlink" href="#scratch-storage" title="Permalink to this headline">#</a></h2>
+<p>Scratch storage is a different kind of storage connected to an HPC cluster. Much like scratch paper, it’s meant to be used temporarily while you’re computing. There’s no backup for things on scratch, and most scratch systems regularly delete files that haven’t been accessed (or modified) recently, though the details and frequency of scratch purges varies from system to system.</p>
+<p>The ephemerality of scratch may make you wary, but don’t let it scare you away: when you’re doing computation on an HPC cluster, you <em>need scratch</em>. Scratch is <strong>fast</strong> for the cluster to read from and write to, much faster than the HPC storage system. And even if you feel like you can be patient and aren’t in any particular hurry, you should still use scratch as your primary storage location for when you’re doing computation on an HPC cluster. The faster you can get your computation done, the less time you have to request for your jobs on the cluster. And the less time you have to request, the less time you have to wait for your jobs to run.</p>
+</div>
+<div class="section" id="data-storage-in-practice">
+<h2>Data storage in practice<a class="headerlink" href="#data-storage-in-practice" title="Permalink to this headline">#</a></h2>
+<p>Here’s what two workflows for data storage look like, for different kinds of projects.</p>
+<div class="section" id="new-analysis-old-corpus">
+<h3>New analysis, old corpus<a class="headerlink" href="#new-analysis-old-corpus" title="Permalink to this headline">#</a></h3>
+<p>A grad student wants to do research using the Early English Books Online (EEBO) corpus, the largest corpus of Early Modern English which has an “open source” version. Their advisor already has a copy of EEBO stored in their group’s HPC storage space. EEBO is the only data source the student needs for this analysis.</p>
+<p>The student logs into the HPC cluster using the command line, and runs a command to copy the zipped directory with the EEBO corpus from HPC storage onto scratch storage. (Copying files around is something that’s fine to do on the login node.) They unzip the copy of EEBO on scratch, and set up their job to read the data from the unzipped copy of EEBO on scratch, process it through an analysis script they have stored in their home directory, then write the results back to scratch. The final step of their job copies all the result files back to their home directory.</p>
+</div>
+<div class="section" id="corpora-corpora-everywhere">
+<h3>Corpora, corpora everywhere<a class="headerlink" href="#corpora-corpora-everywhere" title="Permalink to this headline">#</a></h3>
+<p>A faculty member wants to run an analysis that combines the Chicago Corpus (which they have a copy of, zipped up, on HPC storage), some books their library has given them access to on the condition that they are only used for non-consumptive analysis on the HPC cluster. They also want to use a few text files that they currently have on their own computer.</p>
+<p>The faculty member logs into Globus, using their computer as one endpoint and scratch storage as the other endpoint. They click around their computer, find a few files in different places, and transfer them to scratch using the Globus web interface. It’s okay if those files get purged from scratch; they have a copy on their own computer, and the files don’t form a coherent corpus that they’ll want to reuse in the future. While they have Globus open, they change the endpoint from their computer to HPC storage, and use Globus to transfer the zipped files for the Chicago corpus and the library books to scratch as well.</p>
+<p>They then log into the HPC cluster, and use the command line to unzip the files with the Chicago Corpus and library books. They may rearrange the particular files they need so they’re all in the same directory, to make it easier to run their job. (At some point, if they need to do a lot of file rearranging, they might log into Globus and use the web interface to move files around.) Finally, they run a job using a script stored in their home directory, and output the results to scratch, copying the output files to their home directory as the last step.</p>
+</div>
 </div>
 </div>
 
@@ -351,12 +469,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="why-care.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Why should you care about HPC?</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+    <a class='left-prev' id="prev-link" href="data-storage.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data storage</p>
+        </div>
     </a>
 </div>
             </footer>
