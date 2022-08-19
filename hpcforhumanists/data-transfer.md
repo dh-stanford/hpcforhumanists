@@ -3,6 +3,23 @@ Once you get a sense for the different kinds of storage locations available to y
 
 You can expect your cluster will have a way for you to use the command line to transfer files, but for a lot of humanities scholars, that's less comfortable than using something with a visual interface. In this section, we'll cover various options that your research computing group may or may not provide for data transfer, to at least give you some language for what to ask for.
 
+## SFTP
+Many clusters will let you transfer files using SFTP, which you may be familiar with if you've ever set up a WordPress, Omeka, or other content management system website from scratch. To SFTP files, you need to install software on your computer; on Windows, [WinSCP](https://winscp.net/eng/index.php) is a common option, and on Mac, try [Cyberduck](https://cyberduck.io/). You can find a basic tutorial for SFTP from [David Birnbaum on Obdurodon.org](http://dh.obdurodon.org/mounting-projects.xhtml).
+
+```{admonition} 🌲 SFTPing to Sherlock and Oak
+Here's the settings to SFTP into Sherlock:
+
+* **Hostname:** `sherlock.stanford.edu`
+* **Port:** 22
+* **Username:** SUNet ID
+* **Password:** SUNet ID password
+
+By default, you will be put into your home directory (/home/users/your-sunet-id), but you can use the drop-down towards the top of the screen to navigate to other places. Your scratch is at /scratch/users/your-sunet-id.
+
+SFTPing into Oak is the same, except the hostname is `oak.stanford.edu`, and after you log in, you'll need to navigate to your group directory by going to groups/your-faculty-members-sunet-id.
+
+```
+
 ## Globus
 [Globus](https://www.globus.org/) is a service that universities can subscribe to, that allows users to transfer files between different storage locations (e.g. scratch vs HPC storage vs your home directory) using a web-based interface. If you want to also transfer files to and from your own computer, there's a small application, [Globus Connect Personal](https://www.globus.org/globus-connect-personal), that you need to install on your computer.
 
@@ -47,3 +64,47 @@ Here are the paths you can enter to get to different places within Sherlock (put
 
 When you connect to Oak, you won't be automatically put into a folder where you can upload things; you'll need to navigate around to find it. In most cases, if the faculty member you're working with has bought storage on Oak, you'll want to set the path to /oak/stanford/groups/your-faculty-members-sunet-id.
 ```
+
+## Command line
+If you're very comfortable working with the command line, odds are you've found another guide to HPC by this point. If you want to limit your technical complexity to what's necessary on the HPC side of things, try transferring your files with SFTP or Globus. If you want to use this as an opportunity to do more with the command line, it's worth getting comfortable with using the command line to transfer files around your own computer first, to get the hang of it before you add in the remote server. 
+
+### SCP
+
+SCP (secure copy protocol) is your "general-purpose" command-line command for transferring files. The [Programming Historian command line tutorial](https://programminghistorian.org/en/lessons/intro-to-bash#moving-copying-and-deleting-files) has a section specifically about copying and deleting files that will get you some practice. The `cp` command covered in the Programming Historian tutorial works very similarly to the `scp` command used to transfer files to and from the server, with a little extra syntax to specify the location.
+
+You'll need to check with your research computing group for how to transfer files to your HPC cluster, but in general, the syntax looks like:
+
+`scp file-on-your-computer your-username@your-hpc-server:path-on-the-hpc-server-where-it-goes`
+
+Let's imagine you have a text file, `soseki-kokoro.txt`, in your Documents directory on a Mac, and you want to transfer it to your HPC server. You can open a command line, and type `scp /Users/your-username/Documents/soseki-kokoro.txt your-username@your-hpc-server:soseki-kokoro.txt`
+
+This will create a file with the same name, `soseki-kokoro.txt`, in your home directory on the HPC server.
+
+On Windows, if you're [running Git Bash as recommended by the Programming Historian tutorial](https://programminghistorian.org/en/lessons/intro-to-bash#windows-only-installing-git-bash), your documents folder will be at c/users/your-username/documents, so you'd use the command `scp c/users/your-username/documents/soseki-kokoro.txt your-username@your-hpc-server:soseki-kokoro.txt`
+
+Let's say you have a whole folder of Sōseki novels (a folder called `soseki`) in your Documents folder, and you want to copy all of that to your home directory on the HPC server. On a Mac, you could use the command: `scp /Users/your-username/Documents/soseki/ your-username@your-hpc-server:soseki/`. (The Windows command is almost the same; just change the location of the folder to `c/users/your-username/documents/soseki/`)
+
+You can also (and may have to) specify a location on the server other than your home directory as the destination for the file, but what that looks like concretely is going to vary a lot from system to system. See the Stanford information below as one example.
+
+```{admonition} 🌲 SCP to Sherlock and Oak
+
+Using the same example file as above, here's the command I (on a Mac) use to copy the `soseki-kokoro.txt` file to my home directory on Sherlock:
+
+`scp /Users/my-username/Documents/soseki-kokoro.txt my-sunet-id@login.sherlock.stanford.edu:soseki-kokoro.txt`
+
+If instead I wanted to move it to my scratch space, I'd change the destination to include the path to scratch:
+
+`scp /Users/my-username/Documents/soseki-kokoro.txt my-sunet-id@login.sherlock.stanford.edu:/scratch/users/my-sunet-id/soseki-kokoro.txt`
+
+If I wanted to send it to Oak, I'd need to include the path to my faculty member's group directory:
+
+`scp /Users/my-username/Documents/soseki-kokoro.txt my-sunet-id@oak.stanford.edu:/groups/faculty-members-sunet-id/soseki-kokoro.txt`
+
+```
+
+### RSync
+Rsync (which has nothing to do with the R programming language, the "r" stands for "remote") is good for a more specialized use case, but one that could be relevant for humanities scholars. Imagine you have a folder on your computer where you've been collecting texts that you want to analyze. You've already once transferred the folder (which contains several hundred files) to the HPC server using SFTP or Globus or even SCP. But over the last month, you've been adding more files, and you want to make sure that the new ones are available on the server, too. There are various ways you could make that happen: you could sort the files by date-modified and use SFTP or Globus to copy over the ones you added after the last time you transferred the files. Or you could use rsync from the command line. Rsync compares the timestamp and file size of all the files and folders in a directory you specify on your computer, with the corresponding files and folderes on the server, and only transfers the things that are new or have changed.
+
+The syntax is very similar to scp, described above, except you need to give it a folder on both sides. So, running with the same example, where we want to transfer only the files we've updated in our `soseki` folder that exists in the Documents folder locally, and in our home folder on the HPC system:
+
+`rsync /Users/your-username/Documents/soseki/ your-username@your-hpc-server:soseki/`
