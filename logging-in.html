@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Logging in &#8212; HPC for Humanists</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -136,11 +137,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="data-transfer.html">
    Data transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="understanding-jobs.html">
-   Understanding jobs
   </a>
  </li>
 </ul>
@@ -389,31 +385,31 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="logging-in">
+  <section class="tex2jax_ignore mathjax_ignore" id="logging-in">
 <h1>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this headline">#</a></h1>
 <p>The exact login procedure for HPC systems varies between institutions; check the documentation from your local Research Computing group for details. Two-factor authentication is widely used for HPC systems, so keep your phone on hand.</p>
-<div class="section" id="what-happens-once-you-re-in">
+<section id="what-happens-once-you-re-in">
 <h2>What happens once you’re in?<a class="headerlink" href="#what-happens-once-you-re-in" title="Permalink to this headline">#</a></h2>
 <p>When you log into an HPC cluster, there’s often some kind of policy reminder (so you can’t claim you didn’t see it), and maybe a set of relevant documentation links.</p>
 <p>Then there’s usually some kind of system status message: is the system working? How busy is it? How many jobs do you currently have running?</p>
 <p>Don’t worry too much about the <em>job wait</em> time you might see: in reality, your wait time will depend on lots of different factors, including how many resources you’re requesting.</p>
-</div>
-<div class="section" id="login-node">
+</section>
+<section id="login-node">
 <h2>Login node<a class="headerlink" href="#login-node" title="Permalink to this headline">#</a></h2>
 <p>HPC systems aren’t set up like big cloud servers where you can just log in and start your computational analysis: when you log in, you’re accessing a special server called a <em>login node</em>, which isn’t designed for computation. It’s more like a train station: it won’t take you anywhere, but it’s a space where you can double-check you have everything in your luggage (your files), generally get ready (install software), then catch a train to where you want to go (submit a job).</p>
 <p>Don’t try to run computational jobs on the login node. You’ll probably either get an error message or an email from the sysadmin.</p>
-</div>
-<div class="section" id="logging-into-sherlock">
+</section>
+<section id="logging-into-sherlock">
 <h2>🌲 Logging into Sherlock<a class="headerlink" href="#logging-into-sherlock" title="Permalink to this headline">#</a></h2>
 <p>If a faculty member has already requested an account for you on Sherlock (see <a class="reference internal" href="getting-access.html"><span class="doc std std-doc">Getting access</span></a>), you can connect to it by opening a command line (on a Mac, go to <em>Applications &gt; Utilities &gt; Terminal</em>; on Windows, search for <em>Command Prompt</em>) and typing <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">your-sunet-id&#64;sherlock.stanford.edu</span></code> (replacing <strong>your-sunet-id</strong> with your actual SUNet ID). Some text will pop up asking how you want to do two-factor authentication; choose an option and once you successfully authenticate, you’ll be logged into the login node on Sherlock.</p>
 <p><img alt="Login screen on the Sherlock cluster" src="_images/sherlock_login_screen.png" /></p>
-</div>
-<div class="section" id="logging-into-farmshare">
+</section>
+<section id="logging-into-farmshare">
 <h2>🌲 Logging into Farmshare<a class="headerlink" href="#logging-into-farmshare" title="Permalink to this headline">#</a></h2>
 <p>If you don’t have access to Sherlock, you can log into Farmshare by opening a command line (on a Mac, go to <em>Applications &gt; Utilities &gt; Terminal</em>; on Windows, search for <em>Command Prompt</em>) and typing <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">your-sunet-id&#64;rice.stanford.edu</span></code> (replacing <strong>your-sunet-id</strong> with your actual SUNet ID).</p>
 <p><img alt="Login screen on the Farmshare cluster" src="_images/farmshare_login_screen.png" /></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -463,7 +459,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Alix Keener & Quinn Dombrowski<br/>
+    By Quinn Dombrowski<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

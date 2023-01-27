@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Getting access &#8212; HPC for Humanists</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -136,11 +137,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="data-transfer.html">
    Data transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="understanding-jobs.html">
-   Understanding jobs
   </a>
  </li>
 </ul>
@@ -369,21 +365,27 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="getting-access">
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-access">
 <h1>Getting access<a class="headerlink" href="#getting-access" title="Permalink to this headline">#</a></h1>
 <p>The exact process to get access to the HPC system varies by institution. Most commonly, there’s some kind of HPC system available for all faculty to use, free of charge, potentially with some limits (e.g. a certain number of “credits” or other usage caps per academic year.) Even if the primary users of the HPC cluster are grad students or staff, the faculty member needs to request an account for their group (which will share a single quota, if the HPC system has quotas), and accounts for individual users within the group.</p>
 <p>Some institutions also have a student-oriented system, which students can use for their own projects without approval from a faculty member.</p>
 <p>If you’re not sure where to start looking for this information at your institution, search for your institution’s name plus “Research Computing”, which is what the IT support group that runs HPC is usually called.</p>
-<div class="section" id="farmshare">
+<section id="farmshare">
 <h2>🌲 Farmshare<a class="headerlink" href="#farmshare" title="Permalink to this headline">#</a></h2>
-<p>At Stanford, <a class="reference external" href="https://web.stanford.edu/group/farmshare/cgi-bin/wiki/index.php/User_Guide">Farmshare</a> is the “community computing environment”, for anyone with a SUNet ID to use. It is much smaller than Sherlock: a couple hundred cores^[What’s a “core?” It’s a processor, and on some HPC systems including Stanford’s, each core of each server in the cluster can be “scheduled”, or given a task to do for a certain amount of time. A recent MacBook Pro has four cores by default.] for compute, vs. thousands on Sherlock. Given its smaller size and potentially much larger number of users, you’re better off using Sherlock if you’re working with a faculty member who can get you an account. (For instance, if you’re a grad student, you can ask your advisor.)</p>
+<p>At Stanford, <a class="reference external" href="https://web.stanford.edu/group/farmshare/cgi-bin/wiki/index.php/User_Guide">Farmshare</a> is the “community computing environment”, for anyone with a SUNet ID to use. It is much smaller than Sherlock: a couple hundred cores<a class="footnote-reference brackets" href="#id2" id="id1">1</a> for compute, vs. thousands on Sherlock. Given its smaller size and potentially much larger number of users, you’re better off using Sherlock if you’re working with a faculty member who can get you an account. (For instance, if you’re a grad student, you can ask your advisor.)</p>
 <p>Farmshare doesn’t require any setup or account-creation in advance; anyone with a SUNet ID can log in. If you want to play around with some of the HPC commands, or use HPC for a class project, you can start by <a class="reference internal" href="logging-in.html"><span class="doc std std-doc">logging into</span></a> Farmshare.</p>
-</div>
-<div class="section" id="sherlock">
+</section>
+<section id="sherlock">
 <h2>🌲Sherlock<a class="headerlink" href="#sherlock" title="Permalink to this headline">#</a></h2>
 <p>Sherlock is Stanford’s HPC system for research, and is much larger than Farmshare, which typically means shorter wait times. You need to be working with a faculty member in order to get access. The <a class="reference external" href="https://www.sherlock.stanford.edu/docs/getting-started/?h=sherlock+request+accou">Sherlock documentation</a> says to ask the faculty member to email <code class="docutils literal notranslate"><span class="pre">srcc-support&#64;stanford.edu</span></code> to request a Sherlock account. They should also include the SUNet IDs of everyone who should have access to Sherlock as part of their group. You’ll receive an email when your account is ready, at which point you can <a class="reference internal" href="logging-in.html"><span class="doc std std-doc">log in</span></a>.</p>
-</div>
-</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>What’s a “core?” It’s a processor, and on some HPC systems including Stanford’s, each core of each server in the cluster can be “scheduled”, or given a task to do for a certain amount of time. A recent MacBook Pro has four cores by default.</p>
+</dd>
+</dl>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -433,7 +435,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Alix Keener & Quinn Dombrowski<br/>
+    By Quinn Dombrowski<br/>
   
       &copy; Copyright 2022.<br/>
 </p>
