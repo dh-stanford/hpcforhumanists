@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Understanding jobs &#8212; HPC for Humanists</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data transfer" href="data-transfer.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">HPC for Humanists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    HPC for Humanists
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="why-care.html">
+   Why should you care about HPC?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="getting-access.html">
+   Getting access
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="logging-in.html">
+   Logging in
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-storage.html">
+   Data storage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-transfer.html">
+   Data transfer
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Understanding jobs
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/dh-stanford/hpcforhumanists"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/dh-stanford/hpcforhumanists/issues/new?title=Issue%20on%20page%20%2Funderstanding-jobs.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/understanding-jobs.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interactive-jobs">
+   Interactive jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-your-code">
+     Testing your code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimating-resource-needs">
+     Estimating resource needs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-calculations">
+     Quick calculations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#batch-jobs">
+   Batch jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anatomy-of-an-sbatch-file">
+     Anatomy of an sbatch file
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#job-name">
+       job-name
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#time">
+       time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c">
+       c
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mem">
+       mem
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#output">
+       output
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#error">
+       error
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mail-type">
+       mail-type
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mail-user">
+       mail-user
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-comes-next">
+     What comes next?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-software-libraries">
+     Loading software &amp; libraries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-your-script">
+     Running your script
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#launching-a-batch-job">
+     Launching a batch job
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-on-batch-jobs">
+     Checking on batch jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#canceling-batch-jobs">
+     Canceling batch jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wait-times">
+   Wait times
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Understanding jobs</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interactive-jobs">
+   Interactive jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-your-code">
+     Testing your code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimating-resource-needs">
+     Estimating resource needs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-calculations">
+     Quick calculations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#batch-jobs">
+   Batch jobs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anatomy-of-an-sbatch-file">
+     Anatomy of an sbatch file
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#job-name">
+       job-name
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#time">
+       time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c">
+       c
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mem">
+       mem
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#output">
+       output
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#error">
+       error
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mail-type">
+       mail-type
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mail-user">
+       mail-user
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-comes-next">
+     What comes next?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-software-libraries">
+     Loading software &amp; libraries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-your-script">
+     Running your script
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#launching-a-batch-job">
+     Launching a batch job
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-on-batch-jobs">
+     Checking on batch jobs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#canceling-batch-jobs">
+     Canceling batch jobs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wait-times">
+   Wait times
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="understanding-jobs">
+<h1>Understanding jobs<a class="headerlink" href="#understanding-jobs" title="Permalink to this headline">#</a></h1>
+<p>The HPC system involves a lot of coordination between requests and resources. When you’re doing computational work on your own computer, at any moment you can spontaneously decide to run some code to analyze some data, just like how you can simply decide to put on some shoes and walk to the corner store for a snack. The HPC cluster is more like an airport: it’s a shared infrastructure hub that tries to safely accommodate the comings and goings of as many flights as possible, but during busy periods, that can mean delays. In this airport analogy, the “planes” are what’s known in HPC jargon as “jobs”. Jobs are a request for HPC resources, and any computation you want to do requires HPC resources. When you’re working on an HPC cluster, it’s not “just running some code really quick” – to do anything, you have to submit a job, which will be prioritized as part of a queue, just like an airplane that wants to take off.</p>
+<p>There are two kinds of jobs: <em>interactive</em> and <em>batch</em>.</p>
+<section id="interactive-jobs">
+<h2>Interactive jobs<a class="headerlink" href="#interactive-jobs" title="Permalink to this headline">#</a></h2>
+<p>Interactive jobs let you reserve some compute resources on an HPC cluster and then use them as if you were interacting with the command line on your own computer. You don’t need to learn any new syntax for job creation, you can just run Python (or R, or any other) code from the command line, and you can see any outputs or messages resulting from that code (e.g. any <code class="docutils literal notranslate"><span class="pre">print</span></code> commands) as they are created.</p>
+<p>Interactive jobs are much simpler to set up than batch jobs, but there are limitations: while the details vary between HPC systems, you only get a small amount of compute and memory, and by default, a single hour. (You can extend the time, but you can’t expand the compute resources available in an interactive job.)</p>
+<p>To launch an interactive job, just type <code class="docutils literal notranslate"><span class="pre">sdev</span></code> and hit enter. If you want more time, you can add <code class="docutils literal notranslate"><span class="pre">-t</span></code> and the amount of time you want. For instance, to keep your interactive job open for two hours, you can type <code class="docutils literal notranslate"><span class="pre">sdev</span> <span class="pre">-t</span> <span class="pre">2:00:00</span></code>. Interactive job allocation is usually very fast – you shouldn’t have to plan on waiting more than a couple minutes.</p>
+<div class="admonition-interactive-jobs-on-sherlock admonition">
+<p class="admonition-title">🌲 Interactive jobs on Sherlock</p>
+<p>On Sherlock, interactive jobs are limited to a single core, 4 GB of memory, and one hour.</p>
+</div>
+<p>When does it make sense to use an interactive job? There are a few scenarios:</p>
+<section id="testing-your-code">
+<h3>Testing your code<a class="headerlink" href="#testing-your-code" title="Permalink to this headline">#</a></h3>
+<p>Even if you write code that works on your own computer, you may run into some issues when running it on an HPC cluster. It’s faster to iron out those issues using an interactive job than request resources (especially if you’re requesting a <em>lot</em> of resources to analyze a lot of data), wait for them to be allocated, then watch the job fail due to problems with Python versions, installing libraries, etc. For more about this, see <span class="xref myst">Troubleshooting</span>.</p>
+</section>
+<section id="estimating-resource-needs">
+<h3>Estimating resource needs<a class="headerlink" href="#estimating-resource-needs" title="Permalink to this headline">#</a></h3>
+<p>When you’re submitting a batch job, you need to be specific about what resources you’re requesting: how many cores (or nodes, depending on how the HPC cluster is set up), and how long you need them for. But how do you know what to ask for? An interactive job can be a way to ballpark how long your job will take. If your job consists of a bunch of small tasks, unrelated to one another (e.g. NLP parsing every text in your corpus) you can run your code on a small sample of your data, see how long that takes, and then multiply it by the number of texts you have. (Don’t forget to add some extra time as a buffer.) If your job involves calculations that are inter-connected (e.g. clustering a group of texts), unfortunately, you can’t accurately simulate the time required by running it on a subset of texts in an interactive job, though there are other tricks you can use to try to estimate the resources needed.</p>
+</section>
+<section id="quick-calculations">
+<h3>Quick calculations<a class="headerlink" href="#quick-calculations" title="Permalink to this headline">#</a></h3>
+<p>If you’re using HPC because of security restrictions on your data, rather than your data being inherently so large that you can’t easily run it on your own computer, you might want an interactive job to do quick calculations. Imagine you’ve already run a set of readability metrics for most of the texts in your corpus, but you just acquired three new text files. It might not be worth the hassle of setting up and submitting a batch job to run the metrics on just those three files when you could start an interactive job and run your Python script for calculating metrics on just those three individual files.</p>
+</section>
+</section>
+<section id="batch-jobs">
+<h2>Batch jobs<a class="headerlink" href="#batch-jobs" title="Permalink to this headline">#</a></h2>
+<p>The vast majority of computation done on HPC clusters happens using batch jobs. To run a batch job, you have to create a plain-text file with instructions for the cluster: both what you’re asking from it in terms of resources (memory, CPUs/nodes, amount of time) and what you want it to do (e.g. load some libraries and run a script). These plain-text files use the extension <code class="docutils literal notranslate"><span class="pre">.sbatch</span></code>.</p>
+<section id="anatomy-of-an-sbatch-file">
+<h3>Anatomy of an sbatch file<a class="headerlink" href="#anatomy-of-an-sbatch-file" title="Permalink to this headline">#</a></h3>
+<p>Every sbatch file has what’s called a “Slurm script header” at the top. We’ll cover more about Slurm below, but for the moment, you can think of it as the air traffic controllers in the metaphorical HPC airport – it’s the scheduling system that receives your request, and figures out where your spot is in the queue, among other related tasks. The “Slurm script header” is the specifics of your request: the “what” and the “how much” and the “how long”. Here’s an example of a simple sbatch file, with components explained below. The Slurm script header is at the top, and each line is preceded by a # symbol:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=myjob</span>
+<span class="c1">#SBATCH --time=1:00:00 </span>
+<span class="c1">#SBATCH -c=1</span>
+<span class="c1">#SBATCH --mem=4G</span>
+<span class="c1">#SBATCH --output=/home/users/qad/myjob-output.txt</span>
+<span class="c1">#SBATCH --error=/home/users/qad/myjob-errors.txt</span>
+<span class="c1">#SBATCH --mail-type=END,FAIL</span>
+<span class="c1">#SBATCH --mail-user=email@university.edu</span>
+
+<span class="n">ml</span> <span class="n">reset</span>
+<span class="n">ml</span> <span class="n">python</span><span class="o">/</span><span class="mf">3.6.1</span>
+
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">textstat</span><span class="o">==</span><span class="mf">0.7.2</span>
+
+<span class="n">srun</span> <span class="n">python3</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">qad</span><span class="o">/</span><span class="n">readability</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<section id="job-name">
+<h4>job-name<a class="headerlink" href="#job-name" title="Permalink to this headline">#</a></h4>
+<p>Every job has a name. You’ll see the name when you check and see what jobs you have running, but it doesn’t really matter what you call it. Your name shouldn’t have any spaces or special characters in it.</p>
+</section>
+<section id="time">
+<h4>time<a class="headerlink" href="#time" title="Permalink to this headline">#</a></h4>
+<p>This is the parameter for how long you want the job to run. It’s formatted, very precisely, as hours:minutes:seconds, so in this example, we’re requesting one hour of compute time.</p>
+</section>
+<section id="c">
+<h4>c<a class="headerlink" href="#c" title="Permalink to this headline">#</a></h4>
+<p>In an Slurm script header, -c is short for cores.</p>
+</section>
+<section id="mem">
+<h4>mem<a class="headerlink" href="#mem" title="Permalink to this headline">#</a></h4>
+<p>How much memory each you’re requesting.</p>
+</section>
+<section id="output">
+<h4>output<a class="headerlink" href="#output" title="Permalink to this headline">#</a></h4>
+<p>This is the file where you’ll see all the text that would otherwise be written to the screen if you were running the code in interactive mode, e.g. things like the output of any Python <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement. If your script includes a step for creating output files with the results (e.g. readability scores for your texts), those files will <em>also</em> be created using the filename, location, etc. that you specify in your script. This output is <em>only</em> what would have been written to the screen.</p>
+</section>
+<section id="error">
+<h4>error<a class="headerlink" href="#error" title="Permalink to this headline">#</a></h4>
+<p>This is the file where you’ll see any errors that your script produces, which can be helpful if you’re trying to debug.</p>
+</section>
+<section id="mail-type">
+<h4>mail-type<a class="headerlink" href="#mail-type" title="Permalink to this headline">#</a></h4>
+<p>You don’t have to ask the HPC system to email you when your job completes or fails, but it can be convenient so you don’t have to monitor its status. If you don’t want email, you can leave out this line and <code class="docutils literal notranslate"><span class="pre">mail-user</span></code></p>
+</section>
+<section id="mail-user">
+<h4>mail-user<a class="headerlink" href="#mail-user" title="Permalink to this headline">#</a></h4>
+<p>This is the email address that will be sent mail if you include the <code class="docutils literal notranslate"><span class="pre">mail-type</span></code> parameter.</p>
+</section>
+</section>
+<section id="what-comes-next">
+<h3>What comes next?<a class="headerlink" href="#what-comes-next" title="Permalink to this headline">#</a></h3>
+<p>The sbatch header just contains the commands specific to the Slurm scheduler. Next, you need to load the software that you’re going to use (even programming languages need to be loaded), and make sure any libraries get installed.</p>
+</section>
+<section id="loading-software-libraries">
+<h3>Loading software &amp; libraries<a class="headerlink" href="#loading-software-libraries" title="Permalink to this headline">#</a></h3>
+<p>After the sbatch header, the next line is usually <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">reset</span></code>, which unloads any software that was already loaded in your environment, possibly from earlier tests or experiments you were doing. It helps to start with a clean slate to reduce the number of things that can conflict with each other and cause problems.</p>
+<p>Once you’ve reset the environment, you can load in the software that you do want. For more details on how to find out what software you want, see <span class="xref myst">Software</span>. In this example, we’ll say that we want to load Python version 3.6.1 (the most recent version of Python available on my cluster as of writing this, but it’s worth periodically checking for updates as described in the <span class="xref myst">Software</span> section.) That command is <code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">python/3.6.1</span></code></p>
+<p>Next, if there are any specific libraries that you need to run your code, you should add a line to install them. For instance, to install the Python Textstat library, you can use <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">textstat==0.7.2</span></code></p>
+</section>
+<section id="running-your-script">
+<h3>Running your script<a class="headerlink" href="#running-your-script" title="Permalink to this headline">#</a></h3>
+<p>Once you’ve loaded your software and installed any libraries, you can launch your actual script using the command <code class="docutils literal notranslate"><span class="pre">srun</span></code>. Make sure your script is somewhere on the HPC system before you run this code; in this case, I’ve put it in my home directory (see more about <a class="reference internal" href="data-storage.html"><span class="doc std std-doc">data storage</span></a>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">python3</span> <span class="pre">/home/users/qad/readability.py</span></code></p>
+</section>
+<section id="launching-a-batch-job">
+<h3>Launching a batch job<a class="headerlink" href="#launching-a-batch-job" title="Permalink to this headline">#</a></h3>
+<p>Once you’ve created your plain-text .sbatch file, you’ll need to put it on the HPC system (see <a class="reference internal" href="data-transfer.html"><span class="doc std std-doc">data transfer</span></a>). Your home directory is a convenient place for it, since that’s where you will be when you log in.</p>
+<p>Assuming that you’re in the same directory as your .sbatch file (and you should be, if you’ve just <a class="reference internal" href="logging-in.html"><span class="doc std std-doc">logged in</span></a> to the HPC system and your .sbatch file is in your home directory), you can start the job by typing this (if your .sbatch file is named <code class="docutils literal notranslate"><span class="pre">myjob.sbatch</span></code>):</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">myjob.sbatch</span></code></p>
+<p>It won’t obviously do anything – there isn’t a “job submitted successfully, everything is fine!” message that pops up. The way to find out what’s going on with your job is to check on its status.</p>
+</section>
+<section id="checking-on-batch-jobs">
+<h3>Checking on batch jobs<a class="headerlink" href="#checking-on-batch-jobs" title="Permalink to this headline">#</a></h3>
+<p>The command to check on batch jobs is: <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">$USER</span></code> (or you can just put your own username instead of $USER). If you have any jobs running (or that very recently finished or failed), you’ll see a table with the system’s numeric job ID, the partition (part of the HPC system it’s running on, defaults to <code class="docutils literal notranslate"><span class="pre">normal</span></code>), the name you gave the job in your sbatch script, your username, the status, how long it’s been running (if it’s running yet; sometimes jobs have to wait), how many nodes it’s using, and which nodes it’s using.</p>
+</section>
+<section id="canceling-batch-jobs">
+<h3>Canceling batch jobs<a class="headerlink" href="#canceling-batch-jobs" title="Permalink to this headline">#</a></h3>
+<p>Maybe you’ve realized you made an error in your code, or didn’t upload the right data file to the system. It’s better to cancel the job than to let it run to completion or error, if only because having run fewer jobs will get you higher priority when you want to resubmit it. To cancel a job, first run <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">$USER</span></code> and take note of the job ID of the job you want to cancel; let’s imagine the job number is 1234. Then type <code class="docutils literal notranslate"><span class="pre">scancel</span> <span class="pre">1234</span></code> (or whatever the job number is).</p>
+</section>
+</section>
+<section id="wait-times">
+<h2>Wait times<a class="headerlink" href="#wait-times" title="Permalink to this headline">#</a></h2>
+<p><em>Special thanks to the <a class="reference external" href="https://openwetware.org/wiki/Schumer_lab:_Submitting_slurm_jobs">Schumer Lab</a> for their documentation on job submission</em></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="data-transfer.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data transfer</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Quinn Dombrowski<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
